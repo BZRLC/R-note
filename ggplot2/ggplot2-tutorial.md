@@ -1,8 +1,8 @@
-1. 国外课程
++ 国外课程
 
 https://github.com/jennybc/ggplot2-tutorial
 
-2. 在线参考手册
++ 在线参考手册
 
 http://www.cookbook-r.com/Graphs/
 
