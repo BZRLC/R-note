@@ -18,18 +18,18 @@
     - lda
     - LDAvis
   - [补充](#implemention-from-awesome-r)
-    - [tm]
-    - [openNLP]
-    - [koRpus]
-    - [zipfR]
-    - [tmcn]
-    - [Rwordseg]
-    - [NLP]
-    - [syuzhet]
-    - [SnowballC]
+    - tm
+    - openNLP
+    - koRpus
+    - zipfR
+    - tmcn
+    - Rwordseg
+    - NLP
+    - syuzhet
+    - SnowballC
   - [CRAN Task View](#cran-task-view)
 
-## Chinese-text-segmentation
+## Chinese Text Segmentation
 
 * [jiebaR](https://github.com/qinwf/jiebaR) - 基于c++的R分词包，支持keywords,simhash,海明距离...(首推)
 
@@ -51,14 +51,13 @@
 
 ## Quantitative Analysis of Textual Data
 
-* [quanteda](https://cran.r-project.org/web/packages/quanteda/vignettes/quickstart.html) - c++写的，分析基于"dfm",依赖`stingi`,`data.table`等包，效率还是比较高的；另外还需要加载依赖的主题模型的包,例如`lda`,`topicmodels`等.[快速上手文档](http://kbenoit.github.io/quanteda/intro/overview.html),[github地址](https://github.com/kbenoit/quanteda).
+* [quanteda](https://cran.r-project.org/web/packages/quanteda/vignettes/quickstart.html) - c++写的，分析基于"dfm",依赖`stingi`,`data.table`等包，效率还是比较高的；另外还需要加载依赖的主题模型的包,例如`lda`,`topicmodels`等.[快速上手文档](http://kbenoit.github.io/quanteda/intro/overview.html);  [github地址](https://github.com/kbenoit/quanteda).
 * [topicmodels](https://cran.r-project.org/web/packages/topicmodels/index.html) - Provides an interface to the C code for Latent Dirichlet Allocation (LDA) models and Correlated Topics Models (CTM) [更多请看这里](https://github.com/trinker/topicmodels_learning)
 * [lda](https://cran.r-project.org/web/packages/lda/index.html) - Implements latent Dirichlet allocation (LDA) and related models.
 * [LDAvis](https://github.com/cpsievert/LDAvis) - Interactive visualization of topic models.
 
 ##  Implemention from [Awesome R](https://github.com/qinwf/awesome-R/blob/master/README.md#natural-language-processing) 
-*Packages for Natural Language Processing.*
-https://github.com/qinwf/awesome-R/blob/master/README.md#natural-language-processing
+*Packages for Natural Language Processing.* 
 * [tm](http://cran.r-project.org/web/packages/tm/index.html) - A comprehensive text mining framework for R.
 * [openNLP](http://cran.r-project.org/web/packages/openNLP/index.html) - Apache OpenNLP Tools Interface.
 * [koRpus](http://cran.r-project.org/web/packages/koRpus/index.html) - An R Package for Text Analysis.
