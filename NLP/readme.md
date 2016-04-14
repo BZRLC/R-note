@@ -12,6 +12,7 @@
   - [文本回归与去重](#text-regression-and-document-similarity)
     - textreg
     - textreuse
+    - stringdist
   - [文本定量分析与主题模型](#quantitative-analysis-of-textual-data)
     - quanteda
     - topicmodels
@@ -50,6 +51,7 @@
 * [textreg](https://cran.r-project.org/web/packages/textreg/) -  n-Gram Text Regression, aka Concise Comparative Summarization
 
 * [textreuse](https://cran.r-project.org/web/packages/textreuse/vignettes/textreuse-introduction.html) - provides classes and functions to detect document similarity and text reuse in text corpora.
+* [stringdist](https://cran.r-project.org/web/packages/stringdist/) - Approximate String Matching and String Distance Functions.可以计算hamming distance等等...
 
 ## Quantitative Analysis of Textual Data
 
