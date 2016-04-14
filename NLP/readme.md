@@ -12,11 +12,13 @@
   - [文本回归与去重](#text-regression-and-document-similarity)
     - textreg
     - textreuse
-  - [文本定量分析](#quantitative-analysis-of-textual-data)
+  - [文本定量分析与主题模型](#quantitative-analysis-of-textual-data)
     - quanteda
     - topicmodels
     - lda
     - LDAvis
+    - mallet
+    - stm
   - [补充](#implemention-from-awesome-r)
     - tm
     - openNLP
@@ -55,6 +57,10 @@
 * [topicmodels](https://cran.r-project.org/web/packages/topicmodels/index.html) - Provides an interface to the C code for Latent Dirichlet Allocation (LDA) models and Correlated Topics Models (CTM) [更多请看这里](https://github.com/trinker/topicmodels_learning)
 * [lda](https://cran.r-project.org/web/packages/lda/index.html) - Implements latent Dirichlet allocation (LDA) and related models.
 * [LDAvis](https://github.com/cpsievert/LDAvis) - Interactive visualization of topic models.
+* [mallet](https://cran.r-project.org/web/packages/mallet/index.html) - This package allows you to train topic models in mallet and load results directly into R.基于JAVA
+* [stm](https://cran.r-project.org/web/packages/stm/) - Estimation of the Structural Topic Model.基于C
+
+主题模型可以参考这里的比较和例子：<https://github.com/trinker/topicmodels_learning#r-resources>
 
 ##  Implemention from [Awesome R](https://github.com/qinwf/awesome-R/blob/master/README.md#natural-language-processing) 
 *Packages for Natural Language Processing.* 
