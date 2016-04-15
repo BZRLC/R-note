@@ -25,8 +25,6 @@
     - openNLP
     - koRpus
     - zipfR
-    - tmcn
-    - Rwordseg
     - NLP
     - syuzhet
     - SnowballC
