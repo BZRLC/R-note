@@ -81,7 +81,7 @@ m<-as.matrix(sample.tdm)
  par(op)      
  
 ```
-![整体词云](1.png)
+![整体词云](t1.png)
 
 # 6. 主题模型
 
@@ -126,5 +126,5 @@ m<-mo[,as.numeric(names(tops[tops==k]))]
  par(op)      
  
 ```
-![主题分类3的词云](2.png)
+![主题分类3的词云](t2.png)
 
