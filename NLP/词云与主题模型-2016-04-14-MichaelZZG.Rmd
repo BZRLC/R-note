@@ -4,7 +4,7 @@ output: html_document
 ---
 
 
-1. 读取数据（推荐readr包的各种函数）
+# 1. 读取数据（推荐readr包的各种函数）
 
 ```{r,eval=F}
 library(readr)
@@ -21,7 +21,7 @@ old_enc<-checkenc("news_tensite_xml.smarty.dat")
 d1<-iconv(d1,from=old_enc,to='utf-8')
 ```
 
-2. 剔除无关项，仅保留title和content中的文本，另存为csv文件
+# 2. 剔除无关项，仅保留title和content中的文本，另存为csv文件
 
 ```{r,eval=F}
   tmp<-d1
@@ -42,7 +42,7 @@ d1<-iconv(d1,from=old_enc,to='utf-8')
   write(wenben$content,file='test_con.txt')
 ```
 
-3. 中文分词
+# 3. 中文分词
 
 ```{r,eval=F}
 
@@ -52,7 +52,7 @@ cutter = worker(stop_word = 'stopwords.txt',bylines = TRUE,output = 'jieba_seg.t
 cutter <='test_con.txt'
 ```
 
-4. 构建语料库及文档词条矩阵
+# 4. 构建语料库及文档词条矩阵
 
 ```{r,eval=F}
  #构建语料库
@@ -68,7 +68,7 @@ sample.words<-read_lines('jieba_seg.txt')
  sample.tdm <-  TermDocumentMatrix(corpus, control = list(wordLengths = c(2, Inf)));
 
 ```
-5. 词云图
+# 5. 词云图
 
 ```{r,eval=FALSE,warning=FALSE}
 library(wordcloud)
@@ -83,7 +83,7 @@ m<-as.matrix(sample.tdm)
 ```
 ![整体词云](1.png)
 
-6. 主题模型
+# 6. 主题模型
 
 ```{r,,eval=F}
 #主题模型
@@ -112,7 +112,7 @@ library(slam)
 
 ```
 
-7. 分主题看词云
+# 7. 分主题看词云
 ```{r,warning=FALSE,eval=F}
 tops<-apply(lda_inf$topics,1,which.max)
 k<-3
