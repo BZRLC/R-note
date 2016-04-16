@@ -80,7 +80,7 @@ op = par(bg = "lightgrey")      #背景为亮黄色
 wordcloud(words=names(wordfred),freq=wordfred, min.freq=2,random.order=F,col = rainbow(length(wordfred)))
 par(op)      
 ```
-![整体词云](imgs/R.png)
+![整体词云](https://github.com/MichaelZZG/R-notes/blob/master/NLP/imgs/t1.png)
 
 ## 6.主题模型
 
