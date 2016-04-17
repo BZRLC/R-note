@@ -80,7 +80,7 @@ op = par(bg = "lightgrey")      #背景为亮黄色
 wordcloud(words=names(wordfred),freq=wordfred, min.freq=2,random.order=F,col = rainbow(length(wordfred)))
 par(op)      
 ```
-![整体词云](imgs/t1.png)
+![整体词云](imgs/t1.jpg)
 
 ## 6.主题模型
 
@@ -125,5 +125,5 @@ m<-mo[,as.numeric(names(tops[tops==k]))]
  par(op)      
  
 ```
-![主题分类3的词云](imgs/t2.png)
+![主题分类3的词云](imgs/t2.jpg)
 
