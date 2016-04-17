@@ -110,7 +110,7 @@ sample.dtm  <-  sample.dtm[row_sums(sample.dtm)  >  0,]
 
 ```
 
-## 7.主题看词云
+## 7.分主题看词云
 
 ```{r,warning=FALSE,eval=F}
 tops<-apply(lda_inf$topics,1,which.max)
