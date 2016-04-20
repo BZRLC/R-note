@@ -1,0 +1,126 @@
+
+---
+title: "文本挖掘之wordvectors"
+output: html_document
+---
+
+
+# 数据读取及预处理
+1. 读取数据（推荐readr包的各种函数）
+```{r,eval=F}
+library(readr)
+library(jiebaR)
+
+#读取数据文件
+#数据来源http://download.labs.sogou.com/dl/sogoulabdown/SogouCA/news_tensite_xml.smarty.zip
+d1<-read_lines('news_tensite_xml.smarty.dat')
+#转换编码方式
+# Sys.getenv('http_proxy')->oldproxy
+# Sys.setenv(http_proxy="http://127.0.0.1:8087")
+# Sys.setenv(http_proxy="")
+# library(devtools)
+# devtools::install_github("qinwf/checkenc")
+library(checkenc)
+old_enc<-checkenc("news_tensite_xml.smarty.dat")
+d1<-iconv(d1,from=old_enc,to='utf-8')
+```
+
+2. 剔除无关项，仅保留title和content中的文本，另存为csv文件
+```{r,eval=F}
+  tmp<-d1
+  grep('<contenttitle>',tmp)->t1
+  grep('<content>',tmp)->t2
+  
+  gsub("<contenttitle>",'',tmp[t1])->tmp_t
+  gsub("</contenttitle>",'',tmp_t)->tmp_t
+  # tmp_t
+  
+  gsub(pattern = '\n',x = tmp_t,replacement = "")->tmp_t
+  
+  gsub("<content>",'',tmp[t2])->tmp_c
+  gsub("</content>",'',tmp_c)->tmp_c
+  gsub(pattern = '\n',x = tmp_c,replacement = "")->tmp_c
+  wenben<-data.frame(title=tmp_t,content=tmp_c,stringsAsFactors = FALSE)
+  write_csv(wenben,path='test_data.csv')
+  write(wenben$content,file='test_con.txt',append = F)
+```
+
+3. 中文分词
+```{r,eval=F}
+
+#jiebaR
+#stopwords.txt文件可以从网络检索下载
+seg_file<-'jieba_seg.txt'
+if(file.exists(seg_file)) file.remove(seg_file)
+cutter = worker(stop_word = 'stopwords.txt',bylines = TRUE,output = seg_file)
+cutter <='test_con.txt'
+
+#delete NULL lines in jieba_seg.txt 
+x<-readLines(seg_file)
+x[x!=""]->x
+write(x,file=seg_file,append = F)
+
+```
+
+4. 用word2vec生成词向量
+```{r,eval=FALSE}
+library(wordVectors)
+#vec_col
+vec_col=200
+# prep_word2vec("cookbooks","cookbooks.txt",lowercase=T)
+vec_model<-paste('m',vec_col,'.vectors',sep='')
+if(file.exists(vec_model)) file.remove(vec_model)
+model = train_word2vec("jieba_seg.txt",output=vec_model,threads = 4,vectors = vec_col,window=12)
+nearest_to(model,model[["武汉"]])
+
+a1<-'北京'
+b1<-'中国'
+b2<-'广东'
+nearest_to(model,model[[b2]])
+a2<-model[[a1]]-model[[b1]]+model[[b2]]
+nearest_to(model,a2,20)
+
+```
+
+5. 利用词向量将每篇新闻向量化,直接利用词向量叠加(这个是随便试试,效果不敢保证哦)
+```{r,eval=FALSE}
+doc<-readLines('jieba_seg.txt')
+strsplit(doc,split = " ")->tmp_doc
+names(model@.Data[,2])->key
+docM<-sapply(tmp_doc,function(x) {ids<-key %in% x;
+              if(any(ids)) colSums(model@.Data[ids,,drop=FALSE])})  
+colnames(docM)<-1:dim(docM)[2]
+docM<-t(docM)
+```
+
+6. kmeans聚类((这个是随便试试,效果不敢保证哦))
+```{r,eval=FALSE}
+model<-kmeans(docM,centers = 5)
+
+
+
+doc[model$cluster==3]->doc1
+sample.words<-doc1
+
+#建立语料库
+library(tm)
+corpus = Corpus(VectorSource(sample.words))
+ #建立文档-词条矩阵
+ sample.dtm <- DocumentTermMatrix(corpus, control = list(wordLengths = c(2, Inf)))
+ sample.tdm <-  TermDocumentMatrix(corpus, control = list(wordLengths = c(2, Inf)));
+ 
+ #绘制词云
+ library(wordcloud)
+op<-par()
+m<-as.matrix(sample.tdm)
+ wordfred<-sort(rowSums(m),decreasing=T)
+ wordfred<-wordfred[wordfred>quantile(wordfred)[4]]
+ set.seed(375)
+ op = par(bg = "lightgrey")      #背景为亮黄色
+ wordcloud(words=names(wordfred),freq=wordfred, min.freq=2,random.order=F,col = rainbow(length(wordfred)))
+ par(op)      
+ 
+```
+
+
+
