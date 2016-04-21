@@ -1,6 +1,6 @@
 # R-note
 
-**R 学习笔记——用于共享代码与资料**
+**用于共享代码与资料**
 
 ## 代码共享-Rmd
 
@@ -19,11 +19,15 @@
  title: "文章标题"
  author: "your name"
  output: html_document
+ ---
 ```
+
+之所以需要这样命名是为了后续的整理与发布，等BZRLC的主页博客板式弄好后，能直接将这些Rmd生成网页，发布出来，到时候大家都可以随时看rmd生成网页，而不是看代码这么无聊。
 
 ## 资料共享
 
 参考
+
 - [NLP/readme.md](NLP/readme.md) 小赵整理的 
 - [Awesome-R](https://github.com/qinwf/awesome-R) R资料大全
 
