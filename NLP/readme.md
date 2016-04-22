@@ -1,5 +1,7 @@
 # Awesome NLP in R
 
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+
 小赵搜集的关于自然语言处理相关的R包：
 
   - [分词相关的包](#chinese-text-segmentation)
@@ -20,7 +22,7 @@
     - LDAvis
     - mallet
     - stm
-  - [补充](#implemention-from-awesome-r)
+  - [Awesome-R的补充](#implemention-from-awesome-r)
     - tm
     - openNLP
     - koRpus
