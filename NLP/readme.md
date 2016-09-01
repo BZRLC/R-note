@@ -48,13 +48,13 @@
 * [wordVectors](https://github.com/bmschmidt/wordVectors) - An R package for building and exploring Word2Vec models.基于李舰封装word2vec里面的C代码.
 
 * [tokenizers](https://github.com/ropensci/tokenizers) - Collection of tokenizers for R.
-* 
+
 ## Text Regression and Document Similarity
 
 * [textreg](https://cran.r-project.org/web/packages/textreg/) -  n-Gram Text Regression, aka Concise Comparative Summarization
 
 * [textreuse](https://cran.r-project.org/web/packages/textreuse/vignettes/textreuse-introduction.html) - provides classes and functions to detect document similarity and text reuse in text corpora.
-* 
+
 * [stringdist](https://cran.r-project.org/web/packages/stringdist/) - Approximate String Matching and String Distance Functions.可以计算hamming distance等等...
 
 ## Quantitative Analysis of Textual Data
@@ -89,7 +89,7 @@
 * [syuzhet](https://cran.r-project.org/web/packages/syuzhet/index.html) - Extracts sentiment from text using three different sentiment dictionaries.
 
 * [SnowballC](https://cran.rstudio.com/web/packages/SnowballC/index.html) - Snowball stemmers based on the C libstemmer UTF-8 library.
-* 
+
 ## CRAN Task View
 
 <https://cran.r-project.org/web/views/NaturalLanguageProcessing.html>
